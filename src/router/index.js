@@ -4,15 +4,21 @@ import Home from '../view/home/Home.vue';
 const routes = [
     {
         path:'/',  // path是路径  
-        redirect:'/home',  //重定向   如果访问/结尾，就重定向到/home页面去；   
+        redirect:'/home',  //重定向   如果访问/结尾，就重定向到/home页面去；
     },
     {
         path:'/home',
-        component:Home
+        component:Home,
+      
     },
     {
         path:'/login',
-        component:()=> import( /* webpackChunkName:'food' */  '../view/login/Login.vue')
+        component:()=> import( /* webpackChunkName:'food' */  '../view/login/Login.vue'),
+        children:[{
+            path:'/account',
+            name:'account',
+            component:()=> import( /* webpackChunkName:'account' */  '../view/login/Account.vue')
+        }] 
     }
 ]
 
