@@ -1,5 +1,5 @@
 <template>
     <div>
-        主页
+    这是home页
     </div>
 </template>
