@@ -20,7 +20,12 @@ const routes = [
     },
     {
         path: '/login',
-        component: () => import( /* webpackChunkName:'food' */  '../view/login/Login.vue')
+        component: () => import( /* webpackChunkName:'food' */  '../view/login/Login.vue'),
+        children: [{
+            path: '/account',
+            name: 'account',
+            component: () => import( /* webpackChunkName:'account' */  '../view/login/Account.vue')
+        }]
     }
 ]
 
