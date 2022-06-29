@@ -30,17 +30,12 @@
                     </el-icon>
                     <span>数据统计</span>
                   </template>
-                  <el-menu-item-group title="Group One">
-                    <el-menu-item index="1-1">好好学习</el-menu-item>
-                    <el-menu-item index="1-2">天天向上</el-menu-item>
-                  </el-menu-item-group>
-                  <el-menu-item-group title="Group Two">
-                    <el-menu-item index="1-3">高薪就业</el-menu-item>
-                  </el-menu-item-group>
+                  <el-menu-item index="1-1" @click="navigator('commodity')">好好学习</el-menu-item>
+                  <el-menu-item index="1-2">天天向上</el-menu-item>
                 </el-sub-menu>
                 <el-menu-item index="2">
                   <el-icon>
-                    <icon-menu />
+                    <Finished />
                   </el-icon>
                   <span>菜品管理</span>
                 </el-menu-item>
@@ -54,7 +49,9 @@
             </el-col>
           </el-aside>
 
-          <el-main>Main</el-main>
+          <el-main>
+            <router-view></router-view>
+          </el-main>
         </el-container>
       </el-container>
     </div>
@@ -62,7 +59,19 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {};
+  },
+  methods: {
+    navigator(name) {
+      if (this.$router.name == name) return;
+      this.$router.push({
+        name,
+      });
+    },
+  },
+};
 </script>
 
 <style scoped>
